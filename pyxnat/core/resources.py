@@ -1362,6 +1362,12 @@ class Subject(EObject):
         self._intf._exec(join_uri(self._uri, 'projects', project), 'DELETE')
 
 
+class Visit(EObject):
+    __metaclass__ = ElementType
+
+    def datatype(self):
+        return 'xnat:pVisitData'
+
 class Experiment(EObject):
     __metaclass__ = ElementType
 

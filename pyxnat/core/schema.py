@@ -2,7 +2,8 @@
 # REST collection resources tree
 resources_tree = {
     'projects'        :['subjects', 'resources'],
-    'subjects'        :['experiments', 'resources'],
+    'subjects'        :['experiments', 'resources', 'visits'],
+    'visits'          :['experiments'],
     'experiments'     :['assessors', 'reconstructions', 'scans', 'resources'],
     'assessors'       :['resources', 'in_resources','out_resources'],
     'reconstructions' :['in_resources','out_resources'],
@@ -40,6 +41,7 @@ rest_translation = {'in_resources':'in/resources',
 # REST json format <id_header, label_header>
 json = {'projects':['ID', 'ID'],
         'subjects':['ID', 'label'],
+        'visits':['ID', 'label'],
         'experiments':['ID', 'label'],
         'assessors':['ID', 'label'],
         'reconstructions':['ID', 'label'],
@@ -56,6 +58,7 @@ resources_types    = resources_singular + list(resources_plural)
 
 default_datatypes = {'projects':'xnat:projectData',
                      'subjects':'xnat:subjectData',
+                     'visits':'xnat:pVisitData',
                      'experiments':'xnat:mrSessionData',
                      'assessors':'xnat:mrAssessorData',
                      'reconstructions':'xnat:reconstructedImageData',
